@@ -12,32 +12,24 @@
 
 <script type="text/javascript">
 
-var coinfaces=[["FreshAir.gif"], ["Cleaning.gif"], ["Clothes.png"], ["Work1.gif"], ["Work2.gif"], ["Japanese.png"], ["Cello.png"], ["Food.gif"], ["Keyboard.png"], ["Guitar2.png"]];
+var coinfaces=[["Hearthstone.gif"], ["PTCGO.gif"], ["Ikaruga.png"], ["MtG.gif"], ["SC2.gif"], ["SFVb.gif"], ["Poker.png"], ["Bridge.gif"], ["Mahjongg.png"]];
 
-var columns=Math.round(Math.sqrt(coinfaces.length)+0.4999);
+var columns=3;
 //columns=3;
-var rows=Math.round(coinfaces.length/columns+0.4999);
+var rows=3;
 
 var coinwidth=Math.min(Math.floor((window.innerWidth-50)/4), Math.floor((window.innerHeight-50)/rows));
 var coinheight=coinwidth;
 
 var deskcontents="";
 
-for(i=0; i<2; i++){
+for(i=0; i<3; i++){
   deskcontents=deskcontents+"<table><tr>";
   for(j=0; j<3; j++){
     deskcontents=deskcontents+"<td style=\"width:"+coinwidth+"px; height:"+coinheight+"px;\" id=\"H"+(3*i+j)+"\" onclick=\"flip("+(3*i+j)+")\" class=\"holder\"><img style=\"width:"+coinwidth+"px; height:"+coinheight+"px;\" id=\""+(3*i+j)+"\" src=\"../Coins-Advanced/"+coinfaces[(3*i+j)][0]+"\" draggable=\"false\"></img></td>"
   }
   deskcontents=deskcontents+"</tr></table>"
 }
-
-if(coinfaces.length%columns!=0){deskcontents=deskcontents+"<table><tr>";}
-
-for(i=0; i<4; i++){
-  deskcontents=deskcontents+"<td style=\"width:"+coinwidth+"px; height:"+coinheight+"px;\" id=\"H"+(6+i)+"\" onclick=\"flip("+(6+i)+")\" class=\"holder\"><img style=\"width:"+coinwidth+"px; height:"+coinheight+"px;\" id=\""+(6+i)+"\" src=\"../Coins-Advanced/"+coinfaces[6+i][0]+"\" draggable=\"false\"></img></td>"
-}
-
-if(coinfaces.length%columns!=0){deskcontents=deskcontents+"</tr></table>"}
 
 document.getElementById("desk").innerHTML=deskcontents;
 
